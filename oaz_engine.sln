@@ -25,6 +25,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_data", "oaz_data\oaz_data.vcxproj", "{64C4CC5E-CEEB-4224-A1CD-712093E10401}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_vulkan_wrapper", "oaz_vulkan_wrapper\oaz_vulkan_wrapper.vcxproj", "{A007BA6E-5FEF-4B45-BAAB-4640A3C1EF61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{64C4CC5E-CEEB-4224-A1CD-712093E10401} = {64C4CC5E-CEEB-4224-A1CD-712093E10401}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_physics", "oaz_physics\oaz_physics.vcxproj", "{A342A4FD-6FC5-49E5-9BD5-EFBB94F63C81}"
 	ProjectSection(ProjectDependencies) = postProject

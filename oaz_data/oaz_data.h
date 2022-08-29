@@ -19,6 +19,13 @@ namespace oaz {
 		OazWindow
 	};
 
+	enum class OazResult
+	{
+		OAZ_SUCCESS = 0,
+		OAZ_NOT_READY = 1,
+		OAZ_TIMEOUT = 2,
+	};
+
 	struct SoftwareVersion {
 		unsigned short major;
 		unsigned short minor;

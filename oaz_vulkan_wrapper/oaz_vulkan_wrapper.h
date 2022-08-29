@@ -2,8 +2,5 @@
 #include <vulkan/vulkan.h>
 
 namespace oaz {
-	// 인텔리센스 테스트
-	void testLibrary();
-	void testChange();
-	void hi();
+	void createVulkanInstance();
 }

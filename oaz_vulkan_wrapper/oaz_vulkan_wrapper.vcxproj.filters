@@ -24,6 +24,12 @@
     <ClCompile Include="oaz_vulkan_wrapper_validation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="oaz_vulkan_wrapper_extension.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oaz_vulkan_wrapper_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_vulkan_wrapper.h">
@@ -33,6 +39,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="oaz_vulkan_wrapper_validation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="oaz_vulkan_wrapper_extension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="oaz_vulkan_wrapper_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

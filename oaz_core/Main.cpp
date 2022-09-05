@@ -8,8 +8,8 @@
 class OazApplication {
 public:	
 	void init() {
-		initWindow();
 		initOazEngine();
+		initWindow();
 	}
 	void mainLoop() {
 		while (!glfwWindowShouldClose(window)) {

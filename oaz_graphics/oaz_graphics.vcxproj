@@ -91,7 +91,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -99,10 +99,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>oaz_vulkan_wrapper.lib</AdditionalDependencies>
+      <AdditionalDependencies>oaz_vulkan_wrapper.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>rmdir "$(outDir)include" /q /s
@@ -121,7 +121,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -131,10 +131,10 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>oaz_vulkan_wrapper.lib</AdditionalDependencies>
+      <AdditionalDependencies>oaz_vulkan_wrapper.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>rmdir "$(outDir)include" /q /s
@@ -151,7 +151,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -159,10 +159,10 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>oaz_vulkan_wrapper.lib</AdditionalDependencies>
+      <AdditionalDependencies>oaz_vulkan_wrapper.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>rmdir "$(outDir)include" /q /s
@@ -181,7 +181,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -191,10 +191,10 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>oaz_vulkan_wrapper.lib</AdditionalDependencies>
+      <AdditionalDependencies>oaz_vulkan_wrapper.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib;$(SolutionDir)out\oaz_data\lib;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
       <Command>rmdir "$(outDir)include" /q /s
@@ -204,9 +204,13 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="oaz_graphics.cpp" />
+    <ClCompile Include="oaz_graphics_core.cpp" />
+    <ClCompile Include="oaz_graphics_window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_graphics.h" />
+    <ClInclude Include="oaz_graphics_core.h" />
+    <ClInclude Include="oaz_graphics_window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

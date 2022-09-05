@@ -1,0 +1,12 @@
+{
+  "OazEngine": {
+    "version": "0.0.1",
+    "windowLibrary": "GLFW",
+    "engineLibraries": [ "OazCore", "OazData", "OazGraphics", "OazVulkanWrapper", "OazPhysics" ],
+    "externalLibraries": [ "GLFW", "Vulkan" ]
+  },
+  "OazGraphics": {
+    "graphicsAPISupport": "Vulkan",
+    "windowLibrarySupport": "GLFW"
+  }
+}

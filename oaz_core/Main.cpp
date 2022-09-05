@@ -1,14 +1,17 @@
 #include <iostream>
+#include <fstream>
 #include "GLFW/glfw3.h"
 #include "oaz_vulkan_wrapper.h"
 #include "oaz_data.h"
 #include "GLFW/glfw3.h"
+#include "json.hpp"
 
 
 class OazApplication {
 public:	
 	void init() {
 		initOazEngine();
+		initApplication();
 		initWindow();
 	}
 	void mainLoop() {
@@ -27,10 +30,23 @@ private:
 	const int windowHeight = 600;
 
 	void initOazEngine() {
+		std::ifstream engineConfigStream("..\\oaz_engine_config.json");
+		nlohmann::json engineConfigData = nlohmann::json::parse(engineConfigStream);
+		std::cout << engineConfigData["OazGraphics"]["graphicsAPISupport"] << std::endl;
 		// 현재 Graphics API는 Vulkan으로 고정입니다.
 		graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
 		// 현재 Window관련 Library는 GLFW로 고정입니다.
 		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
+	}
+
+	void initApplication()
+	{
+		std::ifstream appConfigStream("..\\oaz_application_config.json");
+		nlohmann::json appConfigData = nlohmann::json::parse(appConfigStream);
+		if(appConfigData["graphicsOption"]["graphcisAPI"] == "Vulkan")
+		{
+			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
+		}
 	}
 
 	void initWindow() {

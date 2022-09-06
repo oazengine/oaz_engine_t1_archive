@@ -1,43 +1,77 @@
 #include <iostream>
+#include <fstream>
 #include "GLFW/glfw3.h"
 #include "oaz_vulkan_wrapper.h"
 #include "oaz_data.h"
-
+#include "GLFW/glfw3.h"
+#include "json.hpp"
+#include "spdlog/spdlog.h"
 
 
 class OazApplication {
 public:	
 	void init() {
 		initOazEngine();
+		initApplication();
 		initWindow();
 	}
 	void mainLoop() {
-		while (1) {
-
+		while (!glfwWindowShouldClose(window)) {
+			glfwPollEvents();
 		}
 	}
 	void cleanUp() {
-
+		cleanWindow();
 	}
 private:
+	GLFWwindow* window;
 	oaz::GraphicsAPI graphicsAPI;
 	oaz::WindowLibrary windowLibrary;
+	const int windowWidth = 900;
+	const int windowHeight = 600;
+
 	void initOazEngine() {
+		std::ifstream engineConfigStream("..\\oaz_engine_config.json");
+		nlohmann::json engineConfigData = nlohmann::json::parse(engineConfigStream);
+		engineConfigStream.close();
+		}
+
+	void initApplication()
+	{
+		std::ifstream appConfigStream("..\\oaz_application_config.json");
+		nlohmann::json appConfigData = nlohmann::json::parse(appConfigStream);
 		// 현재 Graphics API는 Vulkan으로 고정입니다.
-		graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
+		if(appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
+		{
+			spdlog::info("Selected Graphics API: Vulkan");
+			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
+		} else
+		{
+			spdlog::critical("{0} is not supported", appConfigData["graphicsOption"]["graphicsAPI"]);
+		}
+		appConfigStream.close();
+	}
+
+	void initWindow() {
 		// 현재 Window관련 Library는 GLFW로 고정입니다.
 		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
-	}
-	void initWindow() {
 		if (graphicsAPI.graphicsAPItype == oaz::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::WindowLibraryType::GLFW)
 		{
 			glfwInit();
 			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 			glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+			window = glfwCreateWindow(windowWidth, windowHeight, "Oaz Application", nullptr, nullptr);
+
 		}
 		else {
-			std::cout << "현재 지원하지 않는 환경입니다" << std::endl;
+			spdlog::critical("Selected graphics enviroment is not supported");
 		}
+	}
+
+	void cleanWindow()
+	{
+		glfwDestroyWindow(window);
+		glfwTerminate();
 	}
 };
 

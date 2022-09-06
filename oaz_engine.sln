@@ -19,12 +19,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_graphics", "oaz_graphic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7909AC6-AFB6-4794-B05A-9440E6DF7108}"
 	ProjectSection(SolutionItems) = preProject
+		oaz_application_config.json = oaz_application_config.json
+		oaz_engine_config.json = oaz_engine_config.json
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_data", "oaz_data\oaz_data.vcxproj", "{64C4CC5E-CEEB-4224-A1CD-712093E10401}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_vulkan_wrapper", "oaz_vulkan_wrapper\oaz_vulkan_wrapper.vcxproj", "{A007BA6E-5FEF-4B45-BAAB-4640A3C1EF61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{64C4CC5E-CEEB-4224-A1CD-712093E10401} = {64C4CC5E-CEEB-4224-A1CD-712093E10401}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oaz_physics", "oaz_physics\oaz_physics.vcxproj", "{A342A4FD-6FC5-49E5-9BD5-EFBB94F63C81}"
 	ProjectSection(ProjectDependencies) = postProject

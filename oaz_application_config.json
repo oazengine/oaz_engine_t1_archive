@@ -1,0 +1,12 @@
+{
+  "name": "testApplication",
+  "version": "0.0.1",
+  "platform": [ "Windows 10" ],
+  "OazEngine": {
+    "version": "0.0.1"
+  },
+  "graphicsOption": {
+    "graphicsAPI": "Vulkan",
+    "initialWindowType": "window"
+  }
+}

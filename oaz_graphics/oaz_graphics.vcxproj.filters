@@ -18,7 +18,7 @@
     <ClCompile Include="oaz_graphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="oaz_graphics_core.cpp">
+    <ClCompile Include="oaz_graphics_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="oaz_graphics_window.cpp">
@@ -32,7 +32,7 @@
     <ClInclude Include="oaz_graphics_window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oaz_graphics_core.h">
+    <ClInclude Include="oaz_graphics_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

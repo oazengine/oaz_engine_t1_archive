@@ -6,6 +6,8 @@
 #include "GLFW/glfw3.h"
 #include "json.hpp"
 #include "spdlog/spdlog.h"
+#include "oaz_graphics.h"
+
 
 
 class OazApplication {
@@ -14,6 +16,7 @@ public:
 		initOazEngine();
 		initApplication();
 		initWindow();
+		initOazGraphics();
 	}
 	void mainLoop() {
 		while (!glfwWindowShouldClose(window)) {
@@ -27,6 +30,8 @@ private:
 	GLFWwindow* window;
 	oaz::GraphicsAPI graphicsAPI;
 	oaz::WindowLibrary windowLibrary;
+	oaz::OGM ogm;
+	
 	const int windowWidth = 900;
 	const int windowHeight = 600;
 
@@ -66,6 +71,10 @@ private:
 		else {
 			spdlog::critical("Selected graphics enviroment is not supported");
 		}
+	}
+
+	void initOazGraphics() {
+		
 	}
 
 	void cleanWindow()

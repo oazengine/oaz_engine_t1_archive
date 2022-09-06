@@ -33,6 +33,7 @@ private:
 	void initOazEngine() {
 		std::ifstream engineConfigStream("..\\oaz_engine_config.json");
 		nlohmann::json engineConfigData = nlohmann::json::parse(engineConfigStream);
+		engineConfigStream.close();
 		}
 
 	void initApplication()
@@ -46,14 +47,14 @@ private:
 			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
 		} else
 		{
-			spdlog::critical("{0} isn't supported now", appConfigData["graphicsOption"]["graphicsAPI"]);
+			spdlog::critical("{0} is not supported", appConfigData["graphicsOption"]["graphicsAPI"]);
 		}
-		// 현재 Window관련 Library는 GLFW로 고정입니다.
-		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
-
+		appConfigStream.close();
 	}
 
 	void initWindow() {
+		// 현재 Window관련 Library는 GLFW로 고정입니다.
+		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
 		if (graphicsAPI.graphicsAPItype == oaz::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::WindowLibraryType::GLFW)
 		{
 			glfwInit();
@@ -63,7 +64,7 @@ private:
 
 		}
 		else {
-			std::cout << "현재 지원하지 않는 환경입니다" << std::endl;
+			spdlog::critical("Selected graphics enviroment is not supported");
 		}
 	}
 

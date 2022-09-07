@@ -5,9 +5,18 @@ namespace oaz
 	void OVWValidation::addValidationLayer(const char* validationLayerName)
 	{
 		validationLayers.push_back(validationLayerName);
+		if(isUsingValidationLayers == false)
+		{
+			isUsingValidationLayers = true;
+		}
 	};
-	std::vector<const char*> OVWValidation::getValidationLayers()
+	inline std::vector<const char*> OVWValidation::getValidationLayers()
 	{
 		return validationLayers;
 	};
+	inline bool OVWValidation::getIsUsingValidation()
+	{
+		return isUsingValidationLayers;
+	}
+
 }

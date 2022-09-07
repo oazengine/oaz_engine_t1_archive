@@ -9,6 +9,10 @@ namespace oaz {
 	*/
 	class OGM {
 	public:
+		/**
+		 * @brief GLFWwindow 객체 포인터를 받아 OGM 객체의 멤버 변수(GLFWwindow* window)에 저장합니다.
+		 * @param window GLFWwindow 객체 포인터
+		*/
 		void bindGLFWwindow(GLFWwindow* window);
 		void testGLFWPoint();
 		void testSymbol();

@@ -1,17 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include "GLFW/glfw3.h"
-#include "oaz_vulkan_wrapper.h"
-#include "oaz_data.h"
-#include "GLFW/glfw3.h"
 #include "json.hpp"
 #include "spdlog/spdlog.h"
-#include "oaz_graphics.h"
 
+#include "oaz_graphics.h"
+#include "oaz_vulkan_wrapper.h"
+#include "oaz_data.h"
 
 
 class OazApplication {
-public:	
+public:
 	void init() {
 		initOazEngine();
 		initApplication();
@@ -31,7 +30,7 @@ private:
 	oaz::GraphicsAPI graphicsAPI;
 	oaz::WindowLibrary windowLibrary;
 	oaz::OGM ogm;
-	
+
 	const int windowWidth = 900;
 	const int windowHeight = 600;
 
@@ -39,18 +38,19 @@ private:
 		std::ifstream engineConfigStream("..\\oaz_engine_config.json");
 		nlohmann::json engineConfigData = nlohmann::json::parse(engineConfigStream);
 		engineConfigStream.close();
-		}
+	}
 
 	void initApplication()
 	{
 		std::ifstream appConfigStream("..\\oaz_application_config.json");
 		nlohmann::json appConfigData = nlohmann::json::parse(appConfigStream);
 		// 현재 Graphics API는 Vulkan으로 고정입니다.
-		if(appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
+		if (appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
 		{
 			spdlog::info("Selected Graphics API: Vulkan");
 			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
-		} else
+		}
+		else
 		{
 			spdlog::critical("{0} is not supported", appConfigData["graphicsOption"]["graphicsAPI"]);
 		}
@@ -74,6 +74,7 @@ private:
 	}
 
 	void initOazGraphics() {
+		ogm.bindGLFWwindow(window);
 		
 	}
 

@@ -9,18 +9,10 @@ namespace oaz {
 	*/
 	class OGM {
 	public:
-		OGM(GLFWwindow* window) {
-			this->window = window;
-			testGLFW();
-		}
+		void bindGLFWwindow(GLFWwindow* window);
+		void testGLFWPoint();
+		void testSymbol();
 	private:
 		GLFWwindow* window;
-		void testGLFW() {
-			int xpos, ypos;
-			glfwGetWindowPos(window, &xpos,&ypos);
-			spdlog::info("test {0} {1}", xpos, ypos);
-		}
 	};
-
-	OGM* createOGMWithGLFW(GLFWwindow* glfw);
 }

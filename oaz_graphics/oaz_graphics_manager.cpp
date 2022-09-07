@@ -1,10 +1,20 @@
 ﻿#include "oaz_graphics_manager.h"
-#include "GLFW/glfw3.h"
 
 namespace oaz {
-	/*
-	OGM* createOGMWithGLFW(GLFWwindow* window) {
-		OGM* tempOGM(window);
-		return tempOGM;
-	};*/
+	void OGM::bindGLFWwindow(GLFWwindow* window)
+	{
+		this->window = window;
+	}
+	void OGM::testGLFWPoint()
+	{
+		int xpos, ypos;
+		glfwGetWindowPos(window, &xpos, &ypos);
+		spdlog::info("test {0} {1}", xpos, ypos);
+	}
+
+	void OGM::testSymbol()
+	{
+		spdlog::info("hi");
+	}
+
 }

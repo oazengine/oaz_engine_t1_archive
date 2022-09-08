@@ -24,9 +24,8 @@ namespace oaz
 		 * @return validationLayers
 		 */
 		inline std::vector<const char*> getValidationLayers();
-		inline bool getIsUsingValidation();
+		inline bool isUsingValidationLayers();
 	private:
-		bool isUsingValidationLayers = false;
 		std::vector<const char*> validationLayers;
 	};
 

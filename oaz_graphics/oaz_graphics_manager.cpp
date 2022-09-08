@@ -1,7 +1,7 @@
 ﻿#include "oaz_graphics_manager.h"
 
-namespace oaz {
-	void OGM::bindGLFWwindow(GLFWwindow* window)
+namespace oaz::graphics {
+	void OGM::bindGLFWwindow(GLFWwindow * window)
 	{
 		this->window = window;
 	}

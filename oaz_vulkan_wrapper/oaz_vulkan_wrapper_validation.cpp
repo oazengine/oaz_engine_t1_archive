@@ -1,7 +1,7 @@
 #include "oaz_vulkan_wrapper_validation.h"
 
 
-namespace oaz
+namespace vkw
 {
 	void OVWValidation::addValidationLayer(const char* validationLayerName)
 	{
@@ -23,6 +23,10 @@ namespace oaz
 	}
 	bool OVWValidation::checkValidationLayerSupport() const
 	{
+		if(validationLayers.empty())
+		{
+			spdlog::warn("There are no validation layers that use");
+		}
 		uint32_t layerCount;
 		vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
 		spdlog::info("Validation Layer Count: {0}", layerCount);

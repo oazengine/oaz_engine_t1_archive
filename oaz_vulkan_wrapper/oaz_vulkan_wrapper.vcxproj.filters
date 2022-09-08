@@ -47,5 +47,8 @@
     <ClInclude Include="oaz_vulkan_wrapper_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="oaz_vulkan_wrapper_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

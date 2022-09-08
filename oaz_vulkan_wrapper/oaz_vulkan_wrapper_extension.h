@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-namespace oaz
+namespace vkw
 {
 	std::vector<const char*> getRequiredExtensionsByGLFW();
 }

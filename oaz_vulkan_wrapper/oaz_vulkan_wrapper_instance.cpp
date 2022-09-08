@@ -1,6 +1,6 @@
 #include "oaz_vulkan_wrapper_instance.h"
 
-namespace oaz
+namespace vkw
 {
 	void OVWInstance::createVulkanInstance(OVWValidation ovwValidation)
 	{

@@ -4,7 +4,7 @@
 #include "vulkan/vulkan.h"
 #include "spdlog/spdlog.h"
 
-namespace oaz
+namespace vkw
 {
 	/**
 	 * @brief OazVulkanWrapper의 Validation Layer 제어를 담당하는 Class

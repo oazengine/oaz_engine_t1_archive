@@ -27,8 +27,8 @@ public:
 	}
 private:
 	GLFWwindow* window;
-	oaz::GraphicsAPI graphicsAPI;
-	oaz::WindowLibrary windowLibrary;
+	oaz::data::GraphicsAPI graphicsAPI;
+	oaz::data::WindowLibrary windowLibrary;
 	oaz::OGM ogm;
 
 	const int windowWidth = 900;
@@ -48,7 +48,7 @@ private:
 		if (appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
 		{
 			spdlog::info("Selected Graphics API: Vulkan");
-			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
+			graphicsAPI.graphicsAPItype = OVW::GraphicsAPItype::Vulkan;
 		}
 		else
 		{
@@ -59,8 +59,8 @@ private:
 
 	void initWindow() {
 		// 현재 Window관련 Library는 GLFW로 고정입니다.
-		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
-		if (graphicsAPI.graphicsAPItype == oaz::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::WindowLibraryType::GLFW)
+		windowLibrary.windowLibraryType = OVW::WindowLibraryType::GLFW;
+		if (graphicsAPI.graphicsAPItype == OVW::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == OVW::WindowLibraryType::GLFW)
 		{
 			glfwInit();
 			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);

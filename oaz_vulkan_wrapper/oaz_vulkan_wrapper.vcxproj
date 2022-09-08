@@ -214,6 +214,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
     <ClCompile Include="oaz_vulkan_wrapper_core.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="oaz_vulkan_wrapper_data.h" />
     <ClInclude Include="oaz_vulkan_wrapper_extension.h" />
     <ClInclude Include="oaz_vulkan_wrapper_instance.h" />
     <ClInclude Include="oaz_vulkan_wrapper.h" />

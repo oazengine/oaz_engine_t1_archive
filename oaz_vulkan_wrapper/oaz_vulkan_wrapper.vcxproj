@@ -92,7 +92,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -123,7 +123,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -154,7 +154,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -185,7 +185,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VK_SDK_PATH)\Include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

@@ -2,9 +2,9 @@
 
 namespace oaz
 {
-	void OVWInstance::createInstance()
+	void OVWInstance::createVulkanInstance(OVWValidation ovwValidation)
 	{
-        if (enableValidationLayers && !checkValidationLayerSupport()) {
+        if (ovwValidation.isUsingValidationLayers() && !checkValidationLayerSupport()) {
             throw std::runtime_error("validation layers requested, but not available!");
         }
 

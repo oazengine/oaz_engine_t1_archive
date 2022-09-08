@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include "vulkan/vulkan.h"
+#include "spdlog/spdlog.h"
 
 namespace oaz
 {
@@ -24,7 +26,8 @@ namespace oaz
 		 * @return validationLayers
 		 */
 		inline std::vector<const char*> getValidationLayers();
-		inline bool isUsingValidationLayers();
+		inline bool isUsingValidationLayers() const;
+		bool checkValidationLayerSupport() const;
 	private:
 		std::vector<const char*> validationLayers;
 	};

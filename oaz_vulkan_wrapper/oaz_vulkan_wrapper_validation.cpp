@@ -1,5 +1,6 @@
 #include "oaz_vulkan_wrapper_validation.h"
 
+
 namespace oaz
 {
 	void OVWValidation::addValidationLayer(const char* validationLayerName)
@@ -10,9 +11,9 @@ namespace oaz
 	{
 		return validationLayers;
 	};
-	inline bool OVWValidation::isUsingValidationLayers()
+	inline bool OVWValidation::isUsingValidationLayers() const
 	{
-		if (validationLayers.size() == 0)
+		if (validationLayers.empty())
 		{
 			return false;
 		}
@@ -20,5 +21,31 @@ namespace oaz
 			return true;
 		}
 	}
+	bool OVWValidation::checkValidationLayerSupport() const
+	{
+		uint32_t layerCount;
+		vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
+		spdlog::info("Validation Layer Count: {0}", layerCount);
+
+		std::vector<VkLayerProperties> availableLayers(layerCount);
+		vkEnumerateInstanceLayerProperties(&layerCount, availableLayers.data());
+
+		for (const char* layerName : validationLayers) {
+			bool isLayerFound = false;
+
+			for (const auto& layerProperties : availableLayers) {
+				if (strcmp(layerName, layerProperties.layerName) == 0) {
+					isLayerFound = true;
+					break;
+				}
+			}
+
+			if (!isLayerFound) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 
 }

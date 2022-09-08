@@ -3,27 +3,27 @@
 
 namespace vkw
 {
-	void OVWValidation::addValidationLayer(const char* validationLayerName)
+	void Validation::addValidationLayer(const char* validationLayerName)
 	{
-		validationLayers.push_back(validationLayerName);
+		data::Layer newLayer;
+		newLayer.name = validationLayerName;
+		validationLayers.push_back(newLayer);
 	};
-	inline std::vector<const char*> OVWValidation::getValidationLayers()
+	inline std::vector<data::Layer> Validation::getValidationLayers()
 	{
 		return validationLayers;
 	};
-	inline bool OVWValidation::isUsingValidationLayers() const
+	inline bool Validation::isUsingValidationLayers() const
 	{
 		if (validationLayers.empty())
 		{
 			return false;
 		}
-		else {
-			return true;
-		}
+		return true;
 	}
-	bool OVWValidation::checkValidationLayerSupport() const
+	bool Validation::checkAllValidationLayersAvailable() const
 	{
-		if(validationLayers.empty())
+		if (validationLayers.empty())
 		{
 			spdlog::warn("There are no validation layers that use");
 		}
@@ -34,11 +34,11 @@ namespace vkw
 		std::vector<VkLayerProperties> availableLayers(layerCount);
 		vkEnumerateInstanceLayerProperties(&layerCount, availableLayers.data());
 
-		for (const char* layerName : validationLayers) {
+		for (data::Layer layer : validationLayers) {
 			bool isLayerFound = false;
 
 			for (const auto& layerProperties : availableLayers) {
-				if (strcmp(layerName, layerProperties.layerName) == 0) {
+				if (strcmp(layer.name, layerProperties.layerName) == 0) {
 					isLayerFound = true;
 					break;
 				}

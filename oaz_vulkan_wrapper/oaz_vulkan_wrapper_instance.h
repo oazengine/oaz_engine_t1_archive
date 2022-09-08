@@ -6,10 +6,10 @@
 
 namespace vkw
 {
-	class OVWInstance
+	class Instance
 	{
 	public:
-		void createVulkanInstance(OVWValidation ovwValidation);
+		void createVulkanInstance(Validation ovwValidation);
 	private:
 		VkInstance instance;
 	};

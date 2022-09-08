@@ -2,7 +2,7 @@
 
 namespace vkw
 {
-	void OVWInstance::createVulkanInstance(OVWValidation ovwValidation)
+	void Instance::createVulkanInstance(Validation ovwValidation)
 	{
         if (ovwValidation.isUsingValidationLayers() && !checkValidationLayerSupport()) {
             throw std::runtime_error("validation layers requested, but not available!");

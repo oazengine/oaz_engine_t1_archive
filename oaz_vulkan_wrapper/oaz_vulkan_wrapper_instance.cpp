@@ -4,8 +4,8 @@ namespace vkw
 {
 	void Instance::createVulkanInstance(Validation ovwValidation)
 	{
-        if (ovwValidation.isUsingValidationLayers() && !checkValidationLayerSupport()) {
-            throw std::runtime_error("validation layers requested, but not available!");
+        if (!ovwValidation.checkAllValidationLayersAvailable()) {
+            spdlog::critical("validation layers requested, but not available!");
         }
 
         VkApplicationInfo appInfo{};
@@ -20,7 +20,7 @@ namespace vkw
         createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
         createInfo.pApplicationInfo = &appInfo;
 
-        auto extensions = getRequiredExtensions();
+        auto extensions = getRequiredExtensionsByGLFW();
         createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
         createInfo.ppEnabledExtensionNames = extensions.data();
 

@@ -23,9 +23,10 @@ namespace vkw
 	}
 	bool Validation::checkAllValidationLayersAvailable() const
 	{
-		if (validationLayers.empty())
+		if (!isUsingValidationLayers())
 		{
-			spdlog::warn("There are no validation layers that use");
+			spdlog::warn("There are no validation layers that activated");
+			return false;
 		}
 		uint32_t layerCount;
 		vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
@@ -40,16 +41,16 @@ namespace vkw
 			for (const auto& layerProperties : availableLayers) {
 				if (strcmp(layer.name, layerProperties.layerName) == 0) {
 					isLayerFound = true;
+					layer.layerStatus = data::LayerStatus::AVAILABLE;
 					break;
 				}
 			}
 
 			if (!isLayerFound) {
+				layer.layerStatus = data::LayerStatus::NOT_AVAILABLE;
 				return false;
 			}
 		}
 		return true;
 	}
-
-
 }

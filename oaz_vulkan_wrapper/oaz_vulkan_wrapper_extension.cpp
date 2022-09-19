@@ -5,7 +5,7 @@
 #include "GLFW/glfw3.h"
 
 
-namespace vkw
+namespace ovw
 {
 	std::vector<const char*> getRequiredExtensionsByGLFW()
 	{

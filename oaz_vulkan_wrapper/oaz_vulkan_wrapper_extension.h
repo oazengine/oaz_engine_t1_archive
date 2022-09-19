@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-namespace vkw
+namespace ovw
 {
 	/**
 	 * @brief GLFW로부터 extension을 받아오는 함수

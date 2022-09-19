@@ -1,6 +1,6 @@
 #pragma once
 
-namespace vkw::data
+namespace ovw::data
 {
 	/**
 	 * @brief Vulkan Layer의 상태를 담은 Enum Class

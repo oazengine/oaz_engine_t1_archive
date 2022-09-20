@@ -18,7 +18,11 @@ namespace ovw
 
         if(isUsingGLFWExtensions)
         {
-            auto extensions = getRequiredExtensionsByGLFW();
+            auto extensions = ext::getRequiredExtensionsByGLFW();
+            if(ovwValidation.enableValidationLayers)
+            {
+                extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+            }
             createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
             createInfo.ppEnabledExtensionNames = extensions.data();
         } else
@@ -26,8 +30,8 @@ namespace ovw
             spdlog::warn("Only GLFW extensions are supported now");
         }
         
-        VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
         if (ovwValidation.enableValidationLayers) {
+            VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
             createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation.getActualValidationLayers().size());
             createInfo.ppEnabledLayerNames = ovwValidation.getActualValidationLayers().data();
 
@@ -44,6 +48,14 @@ namespace ovw
         }
 	}
 
-  
+	void Instance::cleanUpVulkanInstance()
+	{
+        vkDestroyInstance(this->instance, nullptr);
+	}
+
+    Instance::~Instance()
+	{
+        this->cleanUpVulkanInstance();
+	}
 }
 

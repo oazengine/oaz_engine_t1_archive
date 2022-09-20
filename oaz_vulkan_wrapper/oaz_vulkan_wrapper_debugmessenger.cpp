@@ -15,3 +15,48 @@ namespace ovw::dm
         return VK_FALSE;
     }
 }
+
+namespace ovw
+{
+    void DebugMessenger::createDebugMessenger()
+    {
+        VkDebugUtilsMessengerCreateInfoEXT createInfo;
+        dm::populateDebugMessengerCreateInfo(createInfo);
+
+        if (CreateDebugUtilsMessengerEXT(*pInstance, &createInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
+            throw std::runtime_error("failed to set up debug messenger!");
+        }
+    }
+
+    DebugMessenger::DebugMessenger(VkInstance* pinstance)
+    {
+        this->pInstance = pinstance;
+        this->createDebugMessenger();
+    }
+
+
+    VkResult DebugMessenger::CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger) {
+        auto func = (PFN_vkCreateDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
+        if (func != nullptr) {
+            return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
+        }
+        else {
+            return VK_ERROR_EXTENSION_NOT_PRESENT;
+        }
+    }
+
+    DebugMessenger::~DebugMessenger()
+    {
+        this->cleanUpDebugMessenger();
+    }
+
+
+    void DebugMessenger::cleanUpDebugMessenger()
+    {
+        auto func = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(*pInstance, "vkDestroyDebugUtilsMessengerEXT");
+        if (func != nullptr) {
+            func(*pInstance, debugMessenger, nullptr);
+        }
+    }
+
+}

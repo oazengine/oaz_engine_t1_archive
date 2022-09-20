@@ -13,6 +13,9 @@ namespace ovw
 	{
 	public:
 		void createVulkanInstance(Validation ovwValidation, bool isUsingGLFWExtensions);
+		void cleanUpVulkanInstance();
+
+		~Instance();
 	private:
 		VkInstance instance;
 	};

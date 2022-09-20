@@ -30,6 +30,9 @@
     <ClCompile Include="oaz_vulkan_wrapper_core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="oaz_vulkan_wrapper_debugmessenger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_vulkan_wrapper.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="oaz_vulkan_wrapper_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="oaz_vulkan_wrapper_debugmessenger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

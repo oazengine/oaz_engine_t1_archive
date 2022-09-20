@@ -207,6 +207,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="oaz_vulkan_wrapper_debugmessenger.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_extension.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_instance.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper.cpp" />
@@ -215,6 +216,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_vulkan_wrapper_data.h" />
+    <ClInclude Include="oaz_vulkan_wrapper_debugmessenger.h" />
     <ClInclude Include="oaz_vulkan_wrapper_extension.h" />
     <ClInclude Include="oaz_vulkan_wrapper_instance.h" />
     <ClInclude Include="oaz_vulkan_wrapper.h" />

@@ -24,12 +24,13 @@ public:
 	}
 	void cleanUp() {
 		cleanWindow();
+		cleanOazGraphics();
 	}
 private:
 	GLFWwindow* window;
 	oaz::data::GraphicsAPI graphicsAPI;
 	oaz::data::WindowLibrary windowLibrary;
-	oaz::OGM ogm;
+	oaz::graphics::OGM ogm;
 
 	const int windowWidth = 900;
 	const int windowHeight = 600;
@@ -48,7 +49,7 @@ private:
 		if (appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
 		{
 			spdlog::info("Selected Graphics API: Vulkan");
-			graphicsAPI.graphicsAPItype = OVW::GraphicsAPItype::Vulkan;
+			graphicsAPI.graphicsAPItype = oaz::data::GraphicsAPItype::Vulkan;
 		}
 		else
 		{
@@ -59,8 +60,8 @@ private:
 
 	void initWindow() {
 		// 현재 Window관련 Library는 GLFW로 고정입니다.
-		windowLibrary.windowLibraryType = OVW::WindowLibraryType::GLFW;
-		if (graphicsAPI.graphicsAPItype == OVW::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == OVW::WindowLibraryType::GLFW)
+		windowLibrary.windowLibraryType = oaz::data::WindowLibraryType::GLFW;
+		if (graphicsAPI.graphicsAPItype == oaz::data::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::data::WindowLibraryType::GLFW)
 		{
 			glfwInit();
 			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
@@ -74,14 +75,18 @@ private:
 	}
 
 	void initOazGraphics() {
-		ogm.bindGLFWwindow(window);
-		
+		ogm.init(window);
 	}
 
 	void cleanWindow()
 	{
 		glfwDestroyWindow(window);
 		glfwTerminate();
+	}
+
+	void cleanOazGraphics()
+	{
+		ogm.cleanUp();
 	}
 };
 

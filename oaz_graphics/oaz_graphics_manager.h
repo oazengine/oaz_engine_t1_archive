@@ -1,6 +1,7 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
+#include "oaz_vulkan_wrapper.h"
 
 
 namespace oaz::graphics {
@@ -9,14 +10,18 @@ namespace oaz::graphics {
 	*/
 	class OGM {
 	public:
-		/**
-		 * @brief GLFWwindow 객체 포인터를 받아 OGM 객체의 멤버 변수(GLFWwindow* window)에 저장합니다.
-		 * @param window GLFWwindow 객체 포인터
-		*/
+		OGM();
+		OGM(GLFWwindow* window);
+		void init(GLFWwindow* window);
 		void bindGLFWwindow(GLFWwindow* window);
 		void testGLFWPoint();
 		void testSymbol();
 	private:
 		GLFWwindow* window;
+		ovw::Instance instance;
+		ovw::Validation validation;
+		ovw::DebugMessenger debugMessenger;
+
+		void initVulkan();
 	};
 }

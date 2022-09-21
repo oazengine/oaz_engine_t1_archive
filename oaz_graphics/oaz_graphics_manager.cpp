@@ -1,6 +1,23 @@
 ﻿#include "oaz_graphics_manager.h"
 
 namespace oaz::graphics {
+	OGM::OGM()
+	{
+		
+	}
+
+	OGM::OGM(GLFWwindow* window)
+	{
+		bindGLFWwindow(window);
+	}
+
+	void OGM::init(GLFWwindow* window)
+	{
+		bindGLFWwindow(window);
+		initVulkan();
+	}
+
+
 	void OGM::bindGLFWwindow(GLFWwindow * window)
 	{
 		this->window = window;
@@ -16,5 +33,14 @@ namespace oaz::graphics {
 	{
 		spdlog::info("hi");
 	}
+
+	void OGM::initVulkan()
+	{
+		validation.addValidationLayerByName("VK_LAYER_KHRONOS_validation");
+		validation.checkAllValidationLayersAvailable();
+		instance.createVulkanInstance(validation, true);
+		
+	}
+
 
 }

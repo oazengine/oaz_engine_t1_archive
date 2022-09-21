@@ -21,15 +21,9 @@
     <ClCompile Include="oaz_graphics_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="oaz_graphics_window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_graphics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="oaz_graphics_window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="oaz_graphics_manager.h">

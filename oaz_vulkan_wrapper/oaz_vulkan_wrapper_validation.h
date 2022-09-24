@@ -1,4 +1,5 @@
-#pragma once
+#ifndef OAZ_VULKAN_WRAPPER_VALIDATION
+#define OAZ_VULKAN_WRAPPER_VALIDATION
 
 #include <vector>
 #include "vulkan/vulkan.h"
@@ -22,3 +23,5 @@ namespace ovw
 	};
 
 }
+
+#endif

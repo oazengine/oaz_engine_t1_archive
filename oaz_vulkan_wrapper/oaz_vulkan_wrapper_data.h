@@ -1,4 +1,5 @@
-#pragma once
+#ifndef OAZ_VULKAN_WRAPPER_DATA
+#define OAZ_VULKAN_WRAPPER_DATA
 
 namespace ovw::data
 {
@@ -23,3 +24,5 @@ namespace ovw::data
 	};
 
 }
+
+#endif OAZ_VULKAN_WRAPPER_DATA

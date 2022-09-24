@@ -1,4 +1,5 @@
-#pragma once
+#ifndef OAZ_VULKAN_WRAPPER_INSTANCE
+#define OAZ_VULKAN_WRAPPER_INSTANCE
 
 #include <iostream>
 #include <vector>
@@ -20,3 +21,5 @@ namespace ovw
 		VkInstance instance;
 	};
 }
+
+#endif 

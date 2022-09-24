@@ -16,12 +16,15 @@ namespace ovw
 	class DebugMessenger
 	{
 	public:
-		DebugMessenger(VkInstance* pinstance);
+		DebugMessenger();
+		DebugMessenger(VkInstance* pInstance);
+
+		void bingVkInstance(VkInstance* pInstance);
 
 		~DebugMessenger();
 	private:
 		VkInstance* pInstance;
-		VkDebugUtilsMessengerEXT debugMessenger;
+		VkDebugUtilsMessengerEXT debugMessengerEXT;
 
 		void createDebugMessenger();
 		VkResult CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger);

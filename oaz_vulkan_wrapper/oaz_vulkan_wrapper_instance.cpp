@@ -19,7 +19,7 @@ namespace ovw
         if(isUsingGLFWExtensions)
         {
             auto extensions = ext::getRequiredExtensionsByGLFW();
-            if(ovwValidation.enableValidationLayers)
+            if(ovwValidation.getEnableValidationLayers())
             {
                 extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
             }
@@ -30,7 +30,7 @@ namespace ovw
             spdlog::warn("Only GLFW extensions are supported now");
         }
         
-        if (ovwValidation.enableValidationLayers) {
+        if (ovwValidation.getEnableValidationLayers()) {
             VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
             createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation.getActualValidationLayers().size());
             createInfo.ppEnabledLayerNames = ovwValidation.getActualValidationLayers().data();

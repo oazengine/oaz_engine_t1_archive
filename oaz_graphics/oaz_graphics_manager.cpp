@@ -3,7 +3,7 @@
 namespace oaz::graphics {
 	OGM::OGM()
 	{
-		
+			
 	}
 
 	OGM::OGM(GLFWwindow* window)
@@ -34,9 +34,16 @@ namespace oaz::graphics {
 		spdlog::info("hi");
 	}
 
+	void OGM::cleanUp()
+	{
+		
+	}
+
+
 	void OGM::initVulkan()
 	{
 		validation.addValidationLayerByName("VK_LAYER_KHRONOS_validation");
+		validation.setEnableValidationLayers(true);
 		validation.checkAllValidationLayersAvailable();
 		instance.createVulkanInstance(validation, true);
 		

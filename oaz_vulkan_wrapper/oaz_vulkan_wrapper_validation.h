@@ -10,15 +10,13 @@ namespace ovw
 	class Validation
 	{
 	public:
-#ifdef NDEBUG
-		const bool enableValidationLayers = false;
-#else
-		const bool enableValidationLayers = true;
-#endif
+		void inline setEnableValidationLayers(bool isEnable);
+		bool inline getEnableValidationLayers() const;
 		void addValidationLayerByName(const char* validationLayerName);
 		void checkAllValidationLayersAvailable();
 		inline std::vector<const char*> getActualValidationLayers() const;
 	private:
+		bool enableValidationLayers = false;
 		std::vector<data::Layer> validationLayerQueue;
 		std::vector<const char*> actualValidationLayers;
 	};

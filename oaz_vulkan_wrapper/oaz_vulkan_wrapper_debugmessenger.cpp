@@ -23,9 +23,14 @@ namespace ovw
         VkDebugUtilsMessengerCreateInfoEXT createInfo;
         dm::populateDebugMessengerCreateInfo(createInfo);
 
-        if (CreateDebugUtilsMessengerEXT(*pInstance, &createInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
+        if (CreateDebugUtilsMessengerEXT(*pInstance, &createInfo, nullptr, &debugMessengerEXT) != VK_SUCCESS) {
             throw std::runtime_error("failed to set up debug messenger!");
         }
+    }
+
+    DebugMessenger::DebugMessenger()
+    {
+        spdlog::info("Create: DebugMessenger");
     }
 
     DebugMessenger::DebugMessenger(VkInstance* pinstance)
@@ -55,7 +60,7 @@ namespace ovw
     {
         auto func = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(*pInstance, "vkDestroyDebugUtilsMessengerEXT");
         if (func != nullptr) {
-            func(*pInstance, debugMessenger, nullptr);
+            func(*pInstance, debugMessengerEXT, nullptr);
         }
     }
 

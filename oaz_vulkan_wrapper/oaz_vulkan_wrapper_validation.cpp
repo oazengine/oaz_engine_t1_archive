@@ -3,6 +3,18 @@
 
 namespace ovw
 {
+
+	void inline Validation::setEnableValidationLayers(bool isEnable)
+	{
+		this->enableValidationLayers = isEnable;
+	}
+
+	bool Validation::getEnableValidationLayers() const
+	{
+		return this->enableValidationLayers;
+	}
+
+
 	void Validation::addValidationLayerByName(const char* validationLayerName)
 	{
 		data::Layer newLayer;

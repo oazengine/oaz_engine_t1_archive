@@ -16,6 +16,7 @@ namespace oaz::graphics {
 		void bindGLFWwindow(GLFWwindow* window);
 		void testGLFWPoint();
 		void testSymbol();
+		void cleanUp();
 	private:
 		GLFWwindow* window;
 		ovw::Instance instance;

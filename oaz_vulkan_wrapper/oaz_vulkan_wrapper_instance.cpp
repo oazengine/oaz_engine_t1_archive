@@ -1,8 +1,13 @@
 #include "oaz_vulkan_wrapper_instance.h"
 
+
+const std::vector<const char*> testLayers = {
+    "VK_LAYER_KHRONOS_validation"
+};
+
 namespace ovw
 {
-	void Instance::createVulkanInstance(Validation ovwValidation, bool isUsingGLFWExtensions)
+	void Instance::createVulkanInstance(Validation* ovwValidation, bool isUsingGLFWExtensions)
 	{
         VkApplicationInfo appInfo{};
         appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -19,7 +24,7 @@ namespace ovw
         if(isUsingGLFWExtensions)
         {
             auto extensions = ext::getRequiredExtensionsByGLFW();
-            if(ovwValidation.getEnableValidationLayers())
+            if(ovwValidation->getEnableValidationLayers())
             {
                 extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
             }
@@ -30,20 +35,25 @@ namespace ovw
             spdlog::warn("Only GLFW extensions are supported now");
         }
         
-        if (ovwValidation.getEnableValidationLayers()) {
+        if (ovwValidation->getEnableValidationLayers()) {
             VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
-            createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation.getActualValidationLayers().size());
-            createInfo.ppEnabledLayerNames = ovwValidation.getActualValidationLayers().data();
+            createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation->getActualValidationLayers().size());
+            //std::vector<const char*> actualValidationLayer = ovwValidation->getActualValidationLayers();
+        	//createInfo.ppEnabledLayerNames = actualValidationLayer.data();
+            createInfo.ppEnabledLayerNames = testLayers.data();
 
-            dm::populateDebugMessengerCreateInfo(debugCreateInfo);
-            createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
+           // dm::populateDebugMessengerCreateInfo(debugCreateInfo);
+            //createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
         }
         else {
             createInfo.enabledLayerCount = 0;
             createInfo.pNext = nullptr;
         }
 
-        if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
+        VkResult test = vkCreateInstance(&createInfo, nullptr, &instance);
+        spdlog::info("Instance creation: {0}", test);
+        
+        if (test != VK_SUCCESS) {
             throw std::runtime_error("failed to create instance!");
         }
 	}

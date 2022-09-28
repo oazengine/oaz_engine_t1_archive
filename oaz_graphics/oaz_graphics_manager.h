@@ -1,4 +1,6 @@
-#pragma once
+#ifndef OAZ_GRAPHICS_MANAGER
+#define OAZ_GRAPHICS_MANAGER
+
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
 #include "oaz_vulkan_wrapper.h"
@@ -26,3 +28,5 @@ namespace oaz::graphics {
 		void initVulkan();
 	};
 }
+
+#endif

@@ -11,11 +11,11 @@ namespace ovw
 	class Validation
 	{
 	public:
-		void inline setEnableValidationLayers(bool isEnable);
-		bool inline getEnableValidationLayers() const;
+		void setEnableValidationLayers(bool isEnable);
+		bool getEnableValidationLayers() const;
 		void addValidationLayerByName(const char* validationLayerName);
 		void checkAllValidationLayersAvailable();
-		inline std::vector<const char*> getActualValidationLayers() const;
+		std::vector<const char*> getActualValidationLayers() const;
 	private:
 		bool enableValidationLayers = false;
 		std::vector<data::Layer> validationLayerQueue;

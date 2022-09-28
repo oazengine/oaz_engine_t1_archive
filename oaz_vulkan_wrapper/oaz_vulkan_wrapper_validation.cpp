@@ -4,7 +4,7 @@
 namespace ovw
 {
 
-	void inline Validation::setEnableValidationLayers(bool isEnable)
+	void Validation::setEnableValidationLayers(bool isEnable)
 	{
 		this->enableValidationLayers = isEnable;
 	}
@@ -25,7 +25,7 @@ namespace ovw
 	{
 		uint32_t layerCount;
 		vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
-		spdlog::info("Validation Layer Count: {0}", layerCount);
+		spdlog::info("Vulkan: Validation Layer Count: {0}", layerCount);
 
 		std::vector<VkLayerProperties> availableLayers(layerCount);
 		vkEnumerateInstanceLayerProperties(&layerCount, availableLayers.data());
@@ -38,16 +38,18 @@ namespace ovw
 					isLayerFound = true;
 					layer.layerStatus = data::LayerStatus::AVAILABLE;
 					actualValidationLayers.push_back(layer.name);
+					spdlog::info("OVW: Validation Layer '{0}' are now activated", layer.name);
 					break;
 				}
 			}
 
 			if (!isLayerFound) {
 				layer.layerStatus = data::LayerStatus::NOT_AVAILABLE;
+				spdlog::warn("OVW: Validation Layer '{0}' can't be founded", layer.name);
 			}
 		}
 	}
-	inline std::vector<const char*> Validation::getActualValidationLayers() const
+	std::vector<const char*> Validation::getActualValidationLayers() const
 	{
 		return actualValidationLayers;
 	}

@@ -21,9 +21,11 @@ namespace ovw
         createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
         createInfo.pApplicationInfo = &appInfo;
 
+        std::vector<const char*> extensions;
+        std::vector<const char*> actualValidationLayer;
         if(isUsingGLFWExtensions)
         {
-            auto extensions = ext::getRequiredExtensionsByGLFW();
+        	extensions = ext::getRequiredExtensionsByGLFW();
             if(ovwValidation->getEnableValidationLayers())
             {
                 extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
@@ -38,12 +40,12 @@ namespace ovw
         if (ovwValidation->getEnableValidationLayers()) {
             VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
             createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation->getActualValidationLayers().size());
-            //std::vector<const char*> actualValidationLayer = ovwValidation->getActualValidationLayers();
-        	//createInfo.ppEnabledLayerNames = actualValidationLayer.data();
-            createInfo.ppEnabledLayerNames = testLayers.data();
+        	actualValidationLayer = ovwValidation->getActualValidationLayers();
+        	createInfo.ppEnabledLayerNames = actualValidationLayer.data();
+            //createInfo.ppEnabledLayerNames = testLayers.data();
 
-           // dm::populateDebugMessengerCreateInfo(debugCreateInfo);
-            //createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
+            dm::populateDebugMessengerCreateInfo(debugCreateInfo);
+            createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
         }
         else {
             createInfo.enabledLayerCount = 0;
@@ -51,9 +53,11 @@ namespace ovw
         }
 
         VkResult test = vkCreateInstance(&createInfo, nullptr, &instance);
-        spdlog::info("Instance creation: {0}", test);
-        
-        if (test != VK_SUCCESS) {
+        if (test == VK_SUCCESS) {
+            spdlog::info("OAZ_VULKAN_WRAPPER: create vulkan instance success");
+        } else
+        {
+            spdlog::warn("OAZ_VULKAN_WRAPPER: something was wrong. the VkResult enum value is : '{0}'", test);
             throw std::runtime_error("failed to create instance!");
         }
 	}

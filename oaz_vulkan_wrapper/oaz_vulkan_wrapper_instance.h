@@ -8,6 +8,7 @@
 #include "oaz_vulkan_wrapper_extension.h"
 #include "oaz_vulkan_wrapper_debugmessenger.h"
 #include "spdlog/spdlog.h"
+#include <vector>
 
 namespace ovw
 {
@@ -20,6 +21,7 @@ namespace ovw
 		~Instance();
 	private:
 		VkInstance instance;
+
 	};
 }
 

@@ -34,15 +34,14 @@ namespace ovw
             createInfo.ppEnabledExtensionNames = extensions.data();
         } else
         {
-            spdlog::warn("Only GLFW extensions are supported now");
+            spdlog::warn("[OAZ_VULKAN_WRAPPER] Only GLFW extensions are supported now");
         }
-        
+
+        VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
         if (ovwValidation->getEnableValidationLayers()) {
-            VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
             createInfo.enabledLayerCount = static_cast<uint32_t>(ovwValidation->getActualValidationLayers().size());
         	actualValidationLayer = ovwValidation->getActualValidationLayers();
         	createInfo.ppEnabledLayerNames = actualValidationLayer.data();
-            //createInfo.ppEnabledLayerNames = testLayers.data();
 
             dm::populateDebugMessengerCreateInfo(debugCreateInfo);
             createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
@@ -51,13 +50,12 @@ namespace ovw
             createInfo.enabledLayerCount = 0;
             createInfo.pNext = nullptr;
         }
-
-        VkResult test = vkCreateInstance(&createInfo, nullptr, &instance);
-        if (test == VK_SUCCESS) {
-            spdlog::info("OAZ_VULKAN_WRAPPER: create vulkan instance success");
+        
+        if (VkResult result = vkCreateInstance(&createInfo, nullptr, &instance); result == VK_SUCCESS) {
+            spdlog::info("[OAZ_VULKAN_WRAPPER] create vulkan instance ");
         } else
         {
-            spdlog::warn("OAZ_VULKAN_WRAPPER: something was wrong. the VkResult enum value is : '{0}'", test);
+            spdlog::warn("[OAZ_VULKAN_WRAPPER] something was wrong when OVW create a vulkan instance. The VkResult is : '{0}'", result);
             throw std::runtime_error("failed to create instance!");
         }
 	}

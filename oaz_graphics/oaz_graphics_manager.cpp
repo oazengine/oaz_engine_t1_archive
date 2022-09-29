@@ -42,7 +42,7 @@ namespace oaz::graphics {
 
 	void OGM::initVulkan()
 	{
-		validation.setEnableValidationLayers(false);
+		validation.setEnableValidationLayers(true);
 		validation.addValidationLayerByName("VK_LAYER_KHRONOS_validation");
 		validation.checkAllValidationLayersAvailable();
 		instance.createVulkanInstance(&validation, true);

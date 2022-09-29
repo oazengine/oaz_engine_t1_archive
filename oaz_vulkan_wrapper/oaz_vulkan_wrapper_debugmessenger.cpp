@@ -11,7 +11,7 @@ namespace ovw::dm
     }
 
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData) {
-        spdlog::warn("Message By Validation Layer: {0}", pCallbackData->pMessage);
+        spdlog::info("[Validation Layer] {0}", pCallbackData->pMessage);
         return VK_FALSE;
     }
 }
@@ -30,7 +30,6 @@ namespace ovw
 
     DebugMessenger::DebugMessenger()
     {
-        spdlog::info("Create: DebugMessenger");
     }
 
     DebugMessenger::DebugMessenger(VkInstance* pinstance)

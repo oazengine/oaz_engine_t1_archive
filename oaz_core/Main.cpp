@@ -48,7 +48,7 @@ private:
 		// 현재 Graphics API는 Vulkan으로 고정입니다.
 		if (appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
 		{
-			spdlog::info("Selected Graphics API: Vulkan");
+			spdlog::info("[OAZ_CORE] Graphics API : Vulkan");
 			graphicsAPI.graphicsAPItype = oaz::data::GraphicsAPItype::Vulkan;
 		}
 		else

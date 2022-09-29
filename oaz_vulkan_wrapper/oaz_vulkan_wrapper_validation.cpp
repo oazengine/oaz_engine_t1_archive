@@ -25,7 +25,7 @@ namespace ovw
 	{
 		uint32_t layerCount;
 		vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
-		spdlog::info("Vulkan: Validation Layer Count: {0}", layerCount);
+		spdlog::info("[Vulkan] Validation Layer Count: {0}", layerCount);
 
 		std::vector<VkLayerProperties> availableLayers(layerCount);
 		vkEnumerateInstanceLayerProperties(&layerCount, availableLayers.data());
@@ -38,14 +38,14 @@ namespace ovw
 					isLayerFound = true;
 					layer.layerStatus = data::LayerStatus::AVAILABLE;
 					actualValidationLayers.push_back(layer.name);
-					spdlog::info("OVW: Validation Layer '{0}' are now activated", layer.name);
+					spdlog::info("[OAZ_VULKAN_WRAPPER] Validation Layer '{0}' is detected", layer.name);
 					break;
 				}
 			}
 
 			if (!isLayerFound) {
 				layer.layerStatus = data::LayerStatus::NOT_AVAILABLE;
-				spdlog::warn("OVW: Validation Layer '{0}' can't be founded", layer.name);
+				spdlog::warn("[OAZ_VULKAN_WRAPPER] Validation Layer '{0}' can't be founded", layer.name);
 			}
 		}
 	}

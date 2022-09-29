@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace oaz {
+namespace oaz::data {
 	// Graphics API의 종류를 담은 Enum
 	enum class GraphicsAPItype {
 		Vulkan,

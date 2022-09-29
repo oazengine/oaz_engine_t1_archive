@@ -1,19 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include "GLFW/glfw3.h"
-#include "oaz_vulkan_wrapper.h"
-#include "oaz_data.h"
-#include "GLFW/glfw3.h"
 #include "json.hpp"
 #include "spdlog/spdlog.h"
 
+#include "oaz_graphics.h"
+#include "oaz_vulkan_wrapper.h"
+#include "oaz_data.h"
+
 
 class OazApplication {
-public:	
+public:
 	void init() {
 		initOazEngine();
 		initApplication();
 		initWindow();
+		initOazGraphics();
 	}
 	void mainLoop() {
 		while (!glfwWindowShouldClose(window)) {
@@ -22,11 +24,14 @@ public:
 	}
 	void cleanUp() {
 		cleanWindow();
+		cleanOazGraphics();
 	}
 private:
 	GLFWwindow* window;
-	oaz::GraphicsAPI graphicsAPI;
-	oaz::WindowLibrary windowLibrary;
+	oaz::data::GraphicsAPI graphicsAPI;
+	oaz::data::WindowLibrary windowLibrary;
+	oaz::graphics::OGM ogm;
+
 	const int windowWidth = 900;
 	const int windowHeight = 600;
 
@@ -34,18 +39,19 @@ private:
 		std::ifstream engineConfigStream("..\\oaz_engine_config.json");
 		nlohmann::json engineConfigData = nlohmann::json::parse(engineConfigStream);
 		engineConfigStream.close();
-		}
+	}
 
 	void initApplication()
 	{
 		std::ifstream appConfigStream("..\\oaz_application_config.json");
 		nlohmann::json appConfigData = nlohmann::json::parse(appConfigStream);
 		// 현재 Graphics API는 Vulkan으로 고정입니다.
-		if(appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
+		if (appConfigData["graphicsOption"]["graphicsAPI"] == "Vulkan")
 		{
 			spdlog::info("Selected Graphics API: Vulkan");
-			graphicsAPI.graphicsAPItype = oaz::GraphicsAPItype::Vulkan;
-		} else
+			graphicsAPI.graphicsAPItype = oaz::data::GraphicsAPItype::Vulkan;
+		}
+		else
 		{
 			spdlog::critical("{0} is not supported", appConfigData["graphicsOption"]["graphicsAPI"]);
 		}
@@ -54,8 +60,8 @@ private:
 
 	void initWindow() {
 		// 현재 Window관련 Library는 GLFW로 고정입니다.
-		windowLibrary.windowLibraryType = oaz::WindowLibraryType::GLFW;
-		if (graphicsAPI.graphicsAPItype == oaz::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::WindowLibraryType::GLFW)
+		windowLibrary.windowLibraryType = oaz::data::WindowLibraryType::GLFW;
+		if (graphicsAPI.graphicsAPItype == oaz::data::GraphicsAPItype::Vulkan && windowLibrary.windowLibraryType == oaz::data::WindowLibraryType::GLFW)
 		{
 			glfwInit();
 			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
@@ -68,10 +74,19 @@ private:
 		}
 	}
 
+	void initOazGraphics() {
+		ogm.init(window);
+	}
+
 	void cleanWindow()
 	{
 		glfwDestroyWindow(window);
 		glfwTerminate();
+	}
+
+	void cleanOazGraphics()
+	{
+		ogm.cleanUp();
 	}
 };
 

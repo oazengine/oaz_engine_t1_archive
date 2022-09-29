@@ -91,14 +91,14 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalModuleDependencies>OazVulkanWrapper</AdditionalModuleDependencies>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;$(SolutionDir)out\oaz_graphics\lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <PerUserRedirection>true</PerUserRedirection>
-      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;$(SolutionDir)out\oaz_graphics\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;oaz_graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,7 +112,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalModuleDependencies>OazVulkanWrapper</AdditionalModuleDependencies>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;$(SolutionDir)out\oaz_graphics\lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,8 +120,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <PerUserRedirection>true</PerUserRedirection>
-      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;$(SolutionDir)out\oaz_graphics\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;oaz_graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,14 +133,14 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalModuleDependencies>OazVulkanWrapper</AdditionalModuleDependencies>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;$(SolutionDir)out\oaz_graphics\lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <PerUserRedirection>true</PerUserRedirection>
-      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;$(SolutionDir)out\oaz_graphics\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;oaz_graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,7 +154,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalModuleDependencies>OazVulkanWrapper</AdditionalModuleDependencies>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
-      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)out\oaz_physics\lib\include;$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(VK_SDK_PATH)\Include;$(SolutionDir)external_dependencies\Libraries\nlohmann;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;$(SolutionDir)out\oaz_graphics\lib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,8 +162,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <PerUserRedirection>true</PerUserRedirection>
-      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\lib-vc2022;$(SolutionDir)out\oaz_graphics\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;oaz_graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

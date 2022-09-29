@@ -91,7 +91,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -121,7 +122,8 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -151,7 +153,8 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -181,7 +184,8 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)out\oaz_vulkan_wrapper\lib\include;$(SolutionDir)out\oaz_data\lib\include;$(SolutionDir)external_dependencies\Libraries\glfw-3.3.8.bin.WIN64\include;$(SolutionDir)external_dependencies\Libraries\spdlog-1.10.0\include;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -204,13 +208,11 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="oaz_graphics.cpp" />
-    <ClCompile Include="oaz_graphics_core.cpp" />
-    <ClCompile Include="oaz_graphics_window.cpp" />
+    <ClCompile Include="oaz_graphics_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oaz_graphics.h" />
-    <ClInclude Include="oaz_graphics_core.h" />
-    <ClInclude Include="oaz_graphics_window.h" />
+    <ClInclude Include="oaz_graphics_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

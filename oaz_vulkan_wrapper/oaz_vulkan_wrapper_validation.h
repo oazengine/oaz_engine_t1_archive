@@ -1,28 +1,27 @@
-#pragma once
+#ifndef OAZ_VULKAN_WRAPPER_VALIDATION
+#define OAZ_VULKAN_WRAPPER_VALIDATION
 
 #include <vector>
+#include "vulkan/vulkan.h"
+#include "spdlog/spdlog.h"
+#include "oaz_vulkan_wrapper_data.h"
 
-namespace oaz
+namespace ovw
 {
-	/**
-	 * \brief OazVulkanWrapper의 Validation Layer 제어를 담당하는 Class
-	 */
-	class OVWValidation
+	class Validation
 	{
 	public:
-		/**
-		 * \brief OVWValidation의 member인 
-		 * \param validationLayerName 원하는 ValidationLayer의 이름을 받습니다.
-		 */
-		void addValidationLayer(const char* validationLayerName);
-		/**
-		 * \brief 사용하고자 하는 validationLayer들의 목록(vector)를 반환하는 함수
-		 * \return validationLayers
-		 */
-		std::vector<const char*> getValidationLayers();
+		void setEnableValidationLayers(bool isEnable);
+		bool getEnableValidationLayers() const;
+		void addValidationLayerByName(const char* validationLayerName);
+		void checkAllValidationLayersAvailable();
+		std::vector<const char*> getActualValidationLayers() const;
 	private:
-		bool isUsingValidationLayers = false;
-		std::vector<const char*> validationLayers;
+		bool enableValidationLayers = false;
+		std::vector<data::Layer> validationLayerQueue;
+		std::vector<const char*> actualValidationLayers;
 	};
 
 }
+
+#endif

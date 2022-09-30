@@ -46,6 +46,7 @@ namespace oaz::graphics {
 		validation.addValidationLayerByName("VK_LAYER_KHRONOS_validation");
 		validation.checkAllValidationLayersAvailable();
 		instance.createVulkanInstance(&validation, true);
+		surface.createSurfaceByGLFW(&instance, window, nullptr);
 	}
 
 

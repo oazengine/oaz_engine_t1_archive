@@ -24,6 +24,7 @@ namespace oaz::graphics {
 		ovw::Instance instance;
 		ovw::Validation validation;
 		ovw::DebugMessenger debugMessenger;
+		ovw::Surface surface;
 
 		void initVulkan();
 	};

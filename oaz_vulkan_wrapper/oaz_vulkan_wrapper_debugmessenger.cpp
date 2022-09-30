@@ -26,7 +26,7 @@ namespace ovw
         if (CreateDebugUtilsMessengerEXT(*pInstance, &createInfo, nullptr, &debugMessengerEXT) != VK_SUCCESS) {
             throw std::runtime_error("failed to set up debug messenger!");
         }
-    }
+    } 
 
     DebugMessenger::DebugMessenger()
     {
@@ -35,7 +35,7 @@ namespace ovw
     DebugMessenger::DebugMessenger(VkInstance* pinstance)
     {
         this->pInstance = pinstance;
-        this->createDebugMessenger();
+        this->createDebugMessenger();   
     }
 
 

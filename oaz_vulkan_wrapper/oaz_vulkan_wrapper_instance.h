@@ -15,12 +15,13 @@ namespace ovw
 	class Instance
 	{
 	public:
+		VkInstance instance;
+
 		void createVulkanInstance(Validation* ovwValidation, bool isUsingGLFWExtensions);
 		void cleanUpVulkanInstance();
 
 		~Instance();
 	private:
-		VkInstance instance;
 
 	};
 }

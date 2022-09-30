@@ -18,7 +18,7 @@ namespace ovw
 		std::vector<const char*> getActualValidationLayers() const;
 	private:
 		bool enableValidationLayers = false;
-		std::vector<data::Layer> validationLayerQueue;
+		std::vector<data::Layer> neededValidationLayers;
 		std::vector<const char*> actualValidationLayers;
 	};
 

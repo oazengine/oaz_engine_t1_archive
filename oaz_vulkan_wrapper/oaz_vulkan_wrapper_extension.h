@@ -8,4 +8,16 @@ namespace ovw::ext
 	std::vector<const char*> getRequiredExtensionsByGLFW();
 }
 
+namespace ovw
+{
+	class ExtensionManager
+	{
+	public:
+		void addExtensionByName(const char* extensionName);
+		std::vector<const char*> neededValidationLayers;
+
+	private:
+	};
+}
+
 #endif

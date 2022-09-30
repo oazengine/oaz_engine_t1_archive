@@ -10,5 +10,6 @@
 #include "oaz_vulkan_wrapper_validation.h"
 #include "oaz_vulkan_wrapper_extension.h"
 #include "oaz_vulkan_wrapper_surface.h"
+#include "oaz_vulkan_wrapper_devicemanager.h"
 
 #endif

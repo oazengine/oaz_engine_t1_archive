@@ -42,11 +42,17 @@ namespace oaz::graphics {
 
 	void OGM::initVulkan()
 	{
+		extensionManager.addExtensionByName(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
 		validation.setEnableValidationLayers(true);
 		validation.addValidationLayerByName("VK_LAYER_KHRONOS_validation");
 		validation.checkAllValidationLayersAvailable();
 		instance.createVulkanInstance(&validation, true);
 		surface.createSurfaceByGLFW(&instance, window, nullptr);
+		physicalDeviceManager.bindInstance(&instance);
+		physicalDeviceManager.bindExtension(&extensionManager);
+		physicalDeviceManager.bindSurface(&surface);
+		physicalDeviceManager.findPhysicalDevices();
+		physicalDeviceManager.selectFirstGPU();
 	}
 
 

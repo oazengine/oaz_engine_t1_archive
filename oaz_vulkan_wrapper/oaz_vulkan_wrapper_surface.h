@@ -11,8 +11,8 @@ namespace ovw
 	{
 	public:
 		VkResult createSurfaceByGLFW(Instance *instance, GLFWwindow* window, const VkAllocationCallbacks* allocator);
-	private:
 		VkSurfaceKHR surface;
+	private:
 	};
 }
 

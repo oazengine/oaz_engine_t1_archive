@@ -1,6 +1,8 @@
 #ifndef OAZ_VULKAN_WRAPPER_DATA
 #define OAZ_VULKAN_WRAPPER_DATA
 
+#include <optional>
+
 namespace ovw::data
 {
 	/**
@@ -23,6 +25,22 @@ namespace ovw::data
 		LayerStatus layerStatus = LayerStatus::NOT_CHECKED;
 	};
 
+	struct QueueFamilyIndices
+	{
+		std::optional<uint32_t> graphicsFamily;
+		std::optional<uint32_t> presentFamily;
+
+		bool isComplete()
+		{
+			return graphicsFamily.has_value() && presentFamily.has_value();
+		}
+	};
+
+	struct SwapChainSupportDetails {
+		VkSurfaceCapabilitiesKHR capabilities;
+		std::vector<VkSurfaceFormatKHR> formats;
+		std::vector<VkPresentModeKHR> presentModes;
+	};
 }
 
-#endif OAZ_VULKAN_WRAPPER_DATA
+#endif 

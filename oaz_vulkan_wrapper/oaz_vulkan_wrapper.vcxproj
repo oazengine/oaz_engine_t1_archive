@@ -211,6 +211,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
     <ClCompile Include="oaz_vulkan_wrapper_extension.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_instance.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper.cpp" />
+    <ClCompile Include="oaz_vulkan_wrapper_devicemanager.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_surface.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_validation.cpp" />
     <ClCompile Include="oaz_vulkan_wrapper_core.cpp" />
@@ -221,7 +222,7 @@ copy $(ProjectDir)*.h $(outDir)include</Command>
     <ClInclude Include="oaz_vulkan_wrapper_extension.h" />
     <ClInclude Include="oaz_vulkan_wrapper_instance.h" />
     <ClInclude Include="oaz_vulkan_wrapper.h" />
-    <ClInclude Include="oaz_vulkan_wrapper_physicaldevice.h" />
+    <ClInclude Include="oaz_vulkan_wrapper_devicemanager.h" />
     <ClInclude Include="oaz_vulkan_wrapper_surface.h" />
     <ClInclude Include="oaz_vulkan_wrapper_validation.h" />
     <ClInclude Include="oaz_vulkan_wrapper_core.h" />

@@ -19,7 +19,7 @@ namespace ovw
 	{
 		data::Layer newLayer;
 		newLayer.name = validationLayerName;
-		validationLayerQueue.push_back(newLayer);
+		neededValidationLayers.push_back(newLayer);
 	};
 	void Validation::checkAllValidationLayersAvailable()
 	{
@@ -30,7 +30,7 @@ namespace ovw
 		std::vector<VkLayerProperties> availableLayers(layerCount);
 		vkEnumerateInstanceLayerProperties(&layerCount, availableLayers.data());
 
-		for (data::Layer layer : validationLayerQueue) {
+		for (data::Layer layer : neededValidationLayers) {
 			bool isLayerFound = false;
 
 			for (const auto& layerProperties : availableLayers) {

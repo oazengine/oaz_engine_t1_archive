@@ -25,6 +25,9 @@ namespace oaz::graphics {
 		ovw::Validation validation;
 		ovw::DebugMessenger debugMessenger;
 		ovw::Surface surface;
+		ovw::ExtensionManager extensionManager;
+		ovw::PhysicalDeviceManager physicalDeviceManager;
+		
 
 		void initVulkan();
 	};

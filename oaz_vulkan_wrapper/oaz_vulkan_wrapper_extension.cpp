@@ -19,3 +19,11 @@ namespace ovw::ext
 	}
 }
 
+namespace ovw
+{
+	void ExtensionManager::addExtensionByName(const char* extensionName)
+	{
+		this->neededValidationLayers.push_back(extensionName);
+	}
+
+}
